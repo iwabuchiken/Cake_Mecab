@@ -2,11 +2,11 @@
 		<tr>
 				<td><?php echo $text['Text']['id']; ?></td>
 				
+				<td><?php echo $text['Text']['string']; ?></td>
+				
 				<td><?php echo $text['Text']['created_at']; ?></td>
 				
 				<td><?php echo $text['Text']['updated_at']; ?></td>
-				
-				<td><?php echo $text['Text']['string']; ?></td>
 				
 		</tr>
 		<?php endforeach; ?>

@@ -4,15 +4,15 @@
 		</th>
 		
 		<th>
+			String
+		</th>
+		
+		<th>
 			Created
 		</th>
 		
 		<th>
 			Updated
-		</th>
-		
-		<th>
-			String
 		</th>
 		
 		

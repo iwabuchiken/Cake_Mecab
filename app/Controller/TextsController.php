@@ -17,5 +17,27 @@ class TextsController extends AppController {
 					__FILE__, __LINE__);
 		
 	}
+
+	public function add() {
+		if ($this->request->is('post')) {
+				
+			$this->Text->create();
+				
+			$this->request->data['Text']['created_at'] =
+					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
+				
+			$this->request->data['Text']['updated_at'] =
+					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
+				
+			if ($this->Text->save($this->request->data)) {
+	
+				$this->Session->setFlash(__('Your text has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+	
+			}
+			$this->Session->setFlash(__('Unable to add your text.'));
+		}
+		
+	}//
 	
 }

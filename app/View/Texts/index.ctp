@@ -9,3 +9,11 @@
 	
 
 </table>
+
+<br>
+
+<?php echo $this->Html->link(
+			    'Add text',
+			    array('controller' => 'texts', 'action' => 'add')
+		); 
+?>

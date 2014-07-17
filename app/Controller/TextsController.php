@@ -39,5 +39,21 @@ class TextsController extends AppController {
 		}
 		
 	}//
+
+	public function view($id = null) {
+		
+		if (!$id) {
+			throw new NotFoundException(__('Invalid text'));
+		}
+	
+		$text = $this->Text->findById($id);
+		
+		if (!$text) {
+			throw new NotFoundException(__('Invalid text'));
+		}
+	
+		$this->set('text', $text);
+	
+	}
 	
 }

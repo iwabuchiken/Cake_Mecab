@@ -43,3 +43,13 @@ ROOT => C:\WORKS\WS\Eclipse_Kepler\VM_Cake[07/05/2014 09:10:43 : C:\WORKS\WS\Ecl
 [07/18/2014 08:16:51 : \app\Controller\TextsController.php : 17] Texts#index
 [07/18/2014 08:16:59 : \app\Controller\TextsController.php : 17] Texts#index
 [07/18/2014 08:17:09 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:33:55 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:35:04 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:37:14 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:37:20 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:38:41 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:38:57 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:39:40 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:39:47 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:40:14 : \app\Controller\TextsController.php : 17] Texts#index
+[07/18/2014 08:43:24 : \app\Controller\TextsController.php : 17] Texts#index

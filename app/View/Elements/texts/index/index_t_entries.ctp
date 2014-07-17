@@ -1,6 +1,19 @@
 		<?php foreach ($texts as $text): ?>
 		<tr>
-				<td><?php echo $text['Text']['id']; ?></td>
+				<td class="td_label">
+					
+					<?php
+
+						echo $this->Html->link(
+								$text['Text']['id'],
+								array(
+									'controller' => 'texts', 
+									'action' => 'view',
+									$text['Text']['id'])
+						);
+// 						echo $text['Text']['id']; 
+					?>
+				</td>
 				
 				<td><?php echo $text['Text']['string']; ?></td>
 				

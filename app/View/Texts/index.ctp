@@ -1,5 +1,5 @@
 <h1>Videos</h1>
-<table>
+<table id="t_texts_index">
 
 	<?php echo $this->element('texts/index/index_t_headers')?>
 

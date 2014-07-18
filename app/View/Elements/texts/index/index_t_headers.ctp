@@ -3,7 +3,7 @@
 			ID
 		</th>
 		
-		<th>
+		<th class="col_string">
 			String
 		</th>
 		

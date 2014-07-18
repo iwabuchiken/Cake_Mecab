@@ -55,5 +55,81 @@ class TextsController extends AppController {
 		$this->set('text', $text);
 	
 	}
+
+	public function delete($id) {
+		/******************************
+	
+		validate
+	
+		******************************/
+		if (!$id) {
+			
+			throw new NotFoundException(__('Invalid text id'));
+			
+		}
+	
+		$text = $this->Text->findById($id);
+	
+		if (!$text) {
+			throw new NotFoundException(__("Can't find the text. id = %d", $id));
+		}
+	
+		/******************************
+	
+		delete
+	
+		******************************/
+		$size = 80;
+		
+		$str_len = mb_strlen($text['Text']['string']);
+			
+		if ($str_len > $size) {
+			//         				if (strlen($text['Text']['text']) > $size) {
+				
+			$line = mb_substr($text['Text']['string'], 0, $size)
+			."...";
+			//         					$line = substr($text['Text']['text'], 0, $size);
+				
+		} else {
+				
+			$line = $text['Text']['string'];
+				
+		}
+		
+		if ($this->Text->delete($id)) {
+			// 		if ($this->Text->save($this->request->data)) {
+	
+			$this->Session->setFlash(
+						__("Text deleted => %s", $line
+					));
+	
+			return $this->redirect(
+					array(
+							'controller' => 'texts',
+							'action' => 'index'
+				
+					));
+	
+		} else {
+	
+			$this->Session->setFlash(
+					__(
+						"Text can't be deleted => %s", 
+						$line
+// 						substr($text['Text']['string'], 0, 20)
+					));
+	
+			// 			$page_num = _get_Page_from_Id($id - 1);
+	
+			return $this->redirect(
+					array(
+							'controller' => 'texts',
+							'action' => 'view',
+							$id
+					));
+	
+		}
+	
+	}//public function delete($id)
 	
 }

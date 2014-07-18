@@ -6,6 +6,36 @@ table#t_texts_view {
 	
 }
 
+table#t_texts_index tr th {
+	
+	border:	1px solid black;
+	text-align:	center;
+	
+}
+
+table#t_texts_index tr th.col_string {
+	
+	width: 50%;
+}
+
+table#t_texts_index tr td.time_label {
+/*td.time_label {*/
+	
+	text-align:	center;
+	
+}
+
+table#t_texts_view tr th {
+	
+	border: 1px solid black;
+}
+
+table#t_texts_view tr.col_string {
+	
+	
+	
+}
+
 table#t_texts_view tr td {
 	
 	border: 1px solid black;

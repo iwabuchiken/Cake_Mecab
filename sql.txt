@@ -1,9 +1,10 @@
-pushd C:\WORKS\WS\Cake\PHP_server\Cake_Mecab\app\webroot
+pushd C:\WORKS\WS\Eclipse_Kepler\Cake_Mecab\app\webroot
 
 sqlite3 development.sqlite3
 .explain on
 
 pragma table_info(texts);
+pragma table_info(datas);
 
 .exit
 
@@ -17,12 +18,28 @@ CREATE TABLE texts(
    
 );
 
-CREATE TABLE docs(
+#REF http://aidiary.hatenablog.com/entry/20101121/1290339360
+# 品詞,品詞細分類1,品詞細分類2,品詞細分類3,活用形,活用型,原形,読み,発音
+
+CREATE TABLE datas(
    id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
    created_at	VARCHAR(30),
    updated_at	VARCHAR(30),
    
-   string		TEXT
+   text_id		INT,
+   surface		VARCHAR(100),
+   feature		VARCHAR(100),
+   
+   ps_1			VARCHAR(30),
+   ps_2			VARCHAR(30),
+   ps_3			VARCHAR(30),
+   
+   conj_1		VARCHAR(30),
+   conj_2		VARCHAR(30),
+   
+   orig			VARCHAR(30),
+   yomi			VARCHAR(30),
+   pron			VARCHAR(30)
    
 );
 
@@ -38,3 +55,24 @@ CREATE TABLE texts(
    
 );
 
+CREATE TABLE datas(
+   id			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   created_at	VARCHAR(30),
+   updated_at	VARCHAR(30),
+   
+   text_id		INT,
+   surface		VARCHAR(100),
+   feature		VARCHAR(100),
+   
+   ps_1			VARCHAR(30),
+   ps_2			VARCHAR(30),
+   ps_3			VARCHAR(30),
+   
+   conj_1		VARCHAR(30),
+   conj_2		VARCHAR(30),
+   
+   orig			VARCHAR(30),
+   yomi			VARCHAR(30),
+   pron			VARCHAR(30)
+   
+);

@@ -8,6 +8,13 @@
 					array('class' => "button"));
 ?>
 
+<?php echo $this->Html->link(
+					'Datas',
+					array('controller' => 'datas', 
+							'action' => 'index'),
+					array('class' => "button"));
+?>
+
 
 <?php echo $this->Html->link(
 					'Remote app',

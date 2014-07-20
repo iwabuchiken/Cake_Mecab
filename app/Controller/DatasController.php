@@ -18,118 +18,101 @@ class DatasController extends AppController {
 		
 	}
 
-// 	public function add() {
-// 		if ($this->request->is('post')) {
+	public function add() {
+		if ($this->request->is('post')) {
 				
-// 			$this->Text->create();
+			$this->Data->create();
 				
-// 			$this->request->data['Text']['created_at'] =
-// 					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
+			$this->request->data['Data']['created_at'] =
+					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
 				
-// 			$this->request->data['Text']['updated_at'] =
-// 					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
+			$this->request->data['Data']['updated_at'] =
+					Utils::get_CurrentTime2(CONS::$timeLabelTypes["rails"]);
 				
-// 			if ($this->Text->save($this->request->data)) {
+			if ($this->Data->save($this->request->data)) {
 	
-// 				$this->Session->setFlash(__('Your text has been saved.'));
-// 				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('Your data has been saved.'));
+				return $this->redirect(array('action' => 'index'));
 	
-// 			}
-// 			$this->Session->setFlash(__('Unable to add your text.'));
-// 		}
+			}
+			$this->Session->setFlash(__('Unable to add your data.'));
+		}
 		
-// 	}//
+	}//
 
-// 	public function view($id = null) {
+	public function view($id = null) {
 		
-// 		if (!$id) {
-// 			throw new NotFoundException(__('Invalid text'));
-// 		}
+		if (!$id) {
+			throw new NotFoundException(__('Invalid data'));
+		}
 	
-// 		$text = $this->Text->findById($id);
+		$data = $this->Data->findById($id);
 		
-// 		if (!$text) {
-// 			throw new NotFoundException(__('Invalid text'));
-// 		}
+		if (!$data) {
+			throw new NotFoundException(__('Invalid data'));
+		}
 	
-// 		$this->set('text', $text);
+		$this->set('data', $data);
 	
-// 	}
+	}
 
-// 	public function delete($id) {
-// 		/******************************
+	public function delete($id) {
+		/******************************
 	
-// 		validate
+		validate
 	
-// 		******************************/
-// 		if (!$id) {
+		******************************/
+		if (!$id) {
 			
-// 			throw new NotFoundException(__('Invalid text id'));
+			throw new NotFoundException(__('Invalid data id'));
 			
-// 		}
+		}
 	
-// 		$text = $this->Text->findById($id);
+		$data = $this->Data->findById($id);
 	
-// 		if (!$text) {
-// 			throw new NotFoundException(__("Can't find the text. id = %d", $id));
-// 		}
+		if (!$data) {
+			throw new NotFoundException(__("Can't find the data. id = %d", $id));
+		}
 	
-// 		/******************************
+		/******************************
 	
-// 		delete
+		delete
 	
-// 		******************************/
-// 		$size = 80;
-		
-// 		$str_len = mb_strlen($text['Text']['string']);
-			
-// 		if ($str_len > $size) {
-// 			//         				if (strlen($text['Text']['text']) > $size) {
+		******************************/
+		if ($this->Data->delete($id)) {
+			// 		if ($this->Data->save($this->request->data)) {
+	
+			$this->Session->setFlash(
+						__("Data deleted => %s", $data['Data']['surface']
+					));
+	
+			return $this->redirect(
+					array(
+							'controller' => 'datas',
+							'action' => 'index'
 				
-// 			$line = mb_substr($text['Text']['string'], 0, $size)
-// 			."...";
-// 			//         					$line = substr($text['Text']['text'], 0, $size);
-				
-// 		} else {
-				
-// 			$line = $text['Text']['string'];
-				
-// 		}
-		
-// 		if ($this->Text->delete($id)) {
-// 			// 		if ($this->Text->save($this->request->data)) {
+					));
 	
-// 			$this->Session->setFlash(
-// 						__("Text deleted => %s", $line
-// 					));
+		} else {
 	
-// 			return $this->redirect(
-// 					array(
-// 							'controller' => 'texts',
-// 							'action' => 'index'
-				
-// 					));
+			$this->Session->setFlash(
+					__(
+						"Data can't be deleted => %s", 
+						$data['Data']['surface']
+// 						substr($data['Data']['string'], 0, 20)
+					));
 	
-// 		} else {
+			// 			$page_num = _get_Page_from_Id($id - 1);
 	
-// 			$this->Session->setFlash(
-// 					__(
-// 						"Text can't be deleted => %s", 
-// 						$line
-// // 						substr($text['Text']['string'], 0, 20)
-// 					));
+			return $this->redirect(
+					array(
+							'controller' => 'datas',
+							'action' => 'view',
+							$id
+					));
 	
-// 			// 			$page_num = _get_Page_from_Id($id - 1);
+		}
 	
-// 			return $this->redirect(
-// 					array(
-// 							'controller' => 'texts',
-// 							'action' => 'view',
-// 							$id
-// 					));
-	
-// 		}
-	
-// 	}//public function delete($id)
+	}//public function delete($id)
 	
 }

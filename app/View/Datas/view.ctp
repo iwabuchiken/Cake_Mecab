@@ -1,13 +1,13 @@
 
 <div>
-	<table id="t_texts_view">
+	<table id="t_datas_view">
 		<tr>
 			<td class="td_label">
 				ID
 			</td>
 			<td>
 				<?php 
-					echo $text['Text']['id']
+					echo $data['Data']['id']
 				?>
 			</td>
 		</tr>
@@ -19,7 +19,7 @@
 			</td>
 			<td>
 				<?php 
-					echo $text['Text']['string']
+					echo $data['Data']['surface']
 				?>
 			</td>
 			
@@ -31,7 +31,7 @@
 			</td>
 			<td>
 				<?php 
-					echo $text['Text']['created_at']
+					echo $data['Data']['created_at']
 				?>
 			</td>
 					
@@ -43,7 +43,7 @@
 			</td>
 			<td>
 				<?php 
-					echo $text['Text']['updated_at']
+					echo $data['Data']['updated_at']
 				?>
 			</td>
 					
@@ -56,29 +56,12 @@
 <div>
     	<?php 
     		
-	    	$size = 80;
-	    		
-	    	$str_len = mb_strlen($text['Text']['string']);
-	    	
-	    	if ($str_len > $size) {
-	    		//         				if (strlen($text['Text']['text']) > $size) {
-	    	
-	    		$line = mb_substr($text['Text']['string'], 0, $size)
-	    		."...";
-	    		//         					$line = substr($text['Text']['text'], 0, $size);
-	    	
-	    	} else {
-	    	
-	    		$line = $text['Text']['string'];
-	    	
-	    	}
-    	
     		echo $this->Html->link(
-					'Delete Text',
+					'Delete Data',
 					array(
-							'controller' => 'texts', 
+							'controller' => 'datas', 
 							'action' => 'delete', 
-							$text['Text']['id']
+							$data['Data']['id']
 					),
 					array(
 							// 							'style'	=> 'color: blue'
@@ -87,9 +70,9 @@
 						
 					//REF http://stackoverflow.com/questions/22519966/cakephp-delete-confirmation answered Mar 19 at 23:18
 					__("Delete? => %s", 
-							$line)
-// 							$text['Text']['string'])
-// 							substr($text['Text']['string'], 0, 20))
+							$data['Data']['surface'])
+// 							$data['Data']['string'])
+// 							substr($data['Data']['string'], 0, 20))
 			
 			);
 		

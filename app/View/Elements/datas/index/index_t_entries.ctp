@@ -1,30 +1,36 @@
 		<?php foreach ($datas as $data): ?>
-		<tr>
-				<td class="td_label">
-					
-					<?php
+		
+			<?php //echo $this->element('datas/index/_index_t_entries_row_1')?>
+			<?php 
+				echo $this->element(
+						'datas/index/_index_t_entries_row_1',
+						array('data' => $data))
+			?>
+		
+			<?php 
+				echo $this->element(
+						'datas/index/_index_t_entries_row_2',
+						array('data' => $data))
+			?>
+		
+			<?php 
+				echo $this->element(
+						'datas/index/_index_t_entries_row_3',
+						array('data' => $data))
+			?>
+		
+			<?php 
+				echo $this->element(
+						'datas/index/_index_t_entries_row_4',
+						array('data' => $data))
+			?>
+		
+			<?php 
+				echo $this->element(
+						'datas/index/_index_t_entries_row_5',
+						array('data' => $data))
+			?>
+		
 
-						echo $this->Html->link(
-								$data['Data']['id'],
-								array(
-									'controller' => 'datas', 
-									'action' => 'view',
-									$data['Data']['id'])
-						);
-// 						echo $data['Data']['id']; 
-					?>
-				</td>
-				
-				<td>
-					<?php 
-						echo $data['Data']['surface'];
-					?>
-				</td>
-				
-				<td class="time_label"><?php echo $data['Data']['created_at']; ?></td>
-				
-				<td class="time_label"><?php echo $data['Data']['updated_at']; ?></td>
-				
-		</tr>
 		<?php endforeach; ?>
 		<?php unset($data); ?>

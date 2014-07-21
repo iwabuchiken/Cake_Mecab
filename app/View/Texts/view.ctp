@@ -97,3 +97,23 @@
 
 
 </div>
+
+<div id="view_xml">
+<input id="view_show_mecab" type="button" onclick="alert('xml')" value="xml" />
+word:
+		<?php
+// 			$children = $xml->children();
+			$words = $xml->word;
+			echo $words[10];
+			echo "/";
+			echo $words[10]->surface;
+// 			echo $children[10]->word;
+// 			echo "/";
+// 			echo $children[10]->word->surface;
+// 			echo $xml->word;
+// 			echo "/";
+// 			echo $xml->word->surface;
+		
+		?>
+
+</div>

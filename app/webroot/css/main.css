@@ -85,3 +85,11 @@ td.td_label {
 	
 }
 
+input#view_show_mecab {
+
+/*	value:	'mecab';*/
+	color: blue;
+	width: 100px;
+	font: bold 20px Helvetica, Arial, sans-serif;
+}
+

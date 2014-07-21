@@ -53,9 +53,61 @@ class TextsController extends AppController {
 		}
 	
 		$this->set('text', $text);
+		
+		/******************************
+		
+			mecab
+		
+		******************************/
+		$this->_view_Data($text);
 	
 	}
 
+	public function 
+	_view_Data($text) {
+		
+		$string = $text['Text']['string'];
+		
+// 		$size = 60;
+		
+// // 		$line = parse_str(mb_substr($string, 0, $size));
+// 		$line = mb_substr($string, 0, $size);
+		
+// 		parse_str($line);
+		$line = urlencode($string);
+// 		$line = urlencode($line);
+		
+		$url = "http://chasen.org/~taku/software/mecapi/mecapi.cgi";
+		
+		$params = "sentence=$line";
+// 		$params = "sentence=$string";
+		
+		$html = file_get_contents("$url?$params");
+		
+		$xml = simplexml_load_string($html);
+		
+		$child = $xml->word[0];
+		
+// 		debug($child);
+
+		$children = $xml->children();
+		
+// 		debug($xml);
+// 		debug(count($children));
+// 		debug($children);
+		
+		$this->set('xml', $xml);
+		
+// 		debug($child->surface);
+// 		debug($child->surface->__toString());
+// 		debug($xml->word->surface);
+// 		debug($xml->word);
+// 		debug($xml);
+		
+// 		debug($line);
+// 		debug($html);
+	}
+	
 	public function delete($id) {
 		/******************************
 	
